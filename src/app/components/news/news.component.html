@@ -1,0 +1,28 @@
+<div class="flex flex-col mb-2 border-yellow-400 border-b-2">
+  <div class="bg-yellow-400 rounded-t-xl p-1 font-bold">
+    {{ author() }}
+  </div>
+
+  <div class="border-yellow-400 border-l-2 border-r-2 p-1 italic bg-yellow-50">
+    {{ title() }}
+  </div>
+
+  <div
+    class="border-yellow-400 border-l-2 border-r-2 p-1 line-clamp-4 text-transparent bg-yellow-50 bg-clip-text bg-gradient-to-b from-slate-700 to-slate-300"
+  >
+    {{ content() }}
+  </div>
+
+  <div
+    class="flex justify-between border-yellow-400 border-l-2 border-r-2 p-4 bg-yellow-50"
+  >
+    <app-button
+      (onClick)="editFunctioncall($event)"
+      [label]="editLabel"
+    ></app-button>
+    <app-button
+      (onClick)="deleteFunctioncall($event)"
+      [label]="deleteLabel"
+    ></app-button>
+  </div>
+</div>
