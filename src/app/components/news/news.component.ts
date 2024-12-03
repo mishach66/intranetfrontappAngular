@@ -2,11 +2,10 @@ import { Component, input, InputSignal } from '@angular/core';
 import { ButtonComponent } from "../button/button.component";
 
 @Component({
-  selector: 'app-news',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './news.component.html',
-  styleUrl: './news.component.scss'
+    selector: 'app-news',
+    imports: [ButtonComponent],
+    templateUrl: './news.component.html',
+    styleUrl: './news.component.scss'
 })
 export class NewsComponent {
   editLabel = "რედაქტირება"

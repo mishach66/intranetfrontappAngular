@@ -9,11 +9,10 @@ import { NewsService } from '../../services/news/news.service'
 
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [HeaderComponent, FooterComponent, NewsComponent, GreetingCardComponent, JsonPipe],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss',
+    selector: 'app-layout',
+    imports: [HeaderComponent, FooterComponent, NewsComponent, GreetingCardComponent, JsonPipe],
+    templateUrl: './layout.component.html',
+    styleUrl: './layout.component.scss'
 })
 
 
