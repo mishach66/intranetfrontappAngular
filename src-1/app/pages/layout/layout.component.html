@@ -54,8 +54,25 @@
       </div>
     </div>
 
-    <div id="dynamicContent" class="flex flex-col w-3/5 bg-yellow-50 p-2">
-      <router-outlet />
+    <div id="newsList" class="flex flex-col w-3/5 bg-yellow-50 p-2">
+      @if(isLoading()){
+      <div class="sticky top-72">
+         <app-loading-spinner></app-loading-spinner>
+      </div>
+      } @if(!isLoading()){
+      <ng-container>
+        @for (news of newsList; track news.id) {
+        <app-news
+          [author]="news.author"
+          [title]="news.title"
+          [content]="news.content"
+        >
+        </app-news>
+        } @empty {
+        <span>There are no items</span>
+        }
+      </ng-container>
+      }
     </div>
 
     <div id="greetingSidebar" class="w-1/5">
