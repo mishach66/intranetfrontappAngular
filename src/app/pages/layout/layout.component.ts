@@ -5,7 +5,7 @@ import { JsonPipe } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { GreetingCardComponent } from '../../components/greeting-card/greeting-card.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -15,6 +15,7 @@ import { RouterOutlet } from '@angular/router';
     GreetingCardComponent,
     JsonPipe,
     RouterOutlet,
+    RouterLink,
 ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',

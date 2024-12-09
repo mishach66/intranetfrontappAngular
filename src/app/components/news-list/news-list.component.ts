@@ -2,6 +2,7 @@ import { Component, inject, signal, effect, WritableSignal, resource, } from '@a
 import { NewsService } from '../../services/news/news.service';
 import { LoadingSpinnerComponent } from "../../components/loading-spinner/loading-spinner.component";
 import { NewsComponent } from '../../components/news/news.component';
+import { News } from '../../models/news/news'
 
 @Component({
   selector: 'app-news-list',
@@ -21,24 +22,27 @@ export class NewsListComponent {
   }
 
   newsServece = inject(NewsService);
-  newsList: any = [];
+  // newsList: any = [];
+  newsList: Array<News> = [];
   isLoading: WritableSignal<boolean> = signal(false);
 
   getAllNews = () => {
     this.isLoading.set(true);
 
-    // სატესტო ვერსია setTimeout-ით დაყოვნებით
+    // // სატესტო ვერსია setTimeout-ით დაყოვნებით
     setTimeout(() => {
       this.newsServece.allNews().subscribe((val) => {
-        this.newsList = val;
+        // console.log('val is:', val)
+        this.newsList = val as Array<News>;
         this.isLoading.set(false);
       });
-    }, 1500);
+    }, 1000);
 
-    // პროდაქშენის ვერსია
+    // // პროდაქშენის ვერსია
     // this.newsServece.allNews().subscribe((val) => {
-    //   this.newsList = val;
-    //   this.isLoading.set(false);
+    // // this.newsList = val;
+    // this.newsList = val as Array<News>;
+    // this.isLoading.set(false);
     // });
   };
 

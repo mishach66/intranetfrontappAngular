@@ -13,7 +13,9 @@
         <div
           class="flex h-12 text-slate-700 border-indigo-600 border-b-2 items-center ml-2 mr-2"
         >
-          <span>თანამშრომელთა სია</span>
+          <a [routerLink]="['/employeeslist']" routerLinkActive="router-link-active">
+            <span> თანამშრომელთა სია </span>
+          </a>
         </div>
         <div
           class="flex h-12 text-slate-700 border-indigo-600 border-b-2 items-center ml-2 mr-2"
@@ -73,7 +75,7 @@
   </section>
 
   <section class="sticky top-full">
-    <div id="footer" >
+    <div id="footer">
       <app-footer></app-footer>
     </div>
   </section>

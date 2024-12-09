@@ -13,4 +13,8 @@ export class NewsService {
   allNews() {
     return this.http.get(`${this.baseApiUrl}News/allNews`)
   }
+
+  newsById(id: string) {
+    return this.http.get(`${this.baseApiUrl}News/newsById/${id}`)
+  }
 }
