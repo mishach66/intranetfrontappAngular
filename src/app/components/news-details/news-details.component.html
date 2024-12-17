@@ -12,9 +12,9 @@
         id="author"
         class="flex justify-between bg-yellow-400 rounded-t-xl p-1 font-bold"
       >
-        <div>{{ newsDetails.author }}</div>
+        <div>{{ author() }}</div>
         <div>
-          {{ newsDetails.date | date : "MMM d, y" : undefined : undefined }}
+          {{ date() | date : "MMM d, y" : undefined : undefined }}
         </div>
       </div>
 
@@ -22,7 +22,7 @@
         id="title"
         class="border-yellow-400 border-l-2 border-r-2 p-1 italic bg-yellow-50"
       >
-        {{ newsDetails.title }}
+        {{ title() }}
       </div>
 
       <div class="border-yellow-400 border-l-2 border-r-2">
@@ -37,20 +37,23 @@
         id="content"
         class="border-yellow-400 border-l-2 border-r-2 p-1 bg-yellow-50 text-slate-700"
       >
-        {{ newsDetails.content }}
+        {{ content() }}
       </div>
 
       <div
         class="flex justify-between border-yellow-400 border-l-2 border-r-2 p-4 bg-yellow-50"
       >
+
         <app-button
-          (onClick)="editFunctioncall($event)"
-          [label]="editLabel"
+          (onClick)="editFunctionCall($event)"
+          [label]="edit"
         ></app-button>
+
         <app-button
-          (onClick)="deleteFunctioncall($event)"
-          [label]="deleteLabel"
+          (onClick)="deleteFunctionCall($event)"
+          [label]="delete"
         ></app-button>
+
       </div>
     </div>
   </ng-container>

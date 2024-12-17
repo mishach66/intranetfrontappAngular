@@ -13,7 +13,7 @@ export class ButtonComponent {
   }
 
   label: InputSignal<string | undefined> = input.required();
-
+    
   onClick = output<any>()
 
   onButtonClick(event: any) {

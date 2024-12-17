@@ -12,8 +12,11 @@ export const routes: Routes = [
     // },
     
     { path: 'newslist', component: NewsListComponent },
+
     { path: '', redirectTo: 'newslist', pathMatch: 'full' },
-    { path: 'newsbyid/:id', component: NewsDetailsComponent },
+
+    { path: 'newsbyid/:id/:author/:title/:content/:date', component: NewsDetailsComponent },
+
     { path: 'employeeslist', component: EmployeesListComponent },
 
     { path: '**', component: NotFoundComponent },

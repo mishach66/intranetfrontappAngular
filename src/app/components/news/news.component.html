@@ -19,7 +19,7 @@
       class="border-yellow-400 border-l-2 border-r-2 mx-2 h-px my-2 bg-gray-400 border-0"
     />
   </div>
-
+  
   <div
     matTooltip="გაიგე მეტი"
     matTooltipClass="tooltip-style"
@@ -27,7 +27,14 @@
     class="border-yellow-400 border-l-2 border-r-2 p-1 line-clamp-4 text-transparent bg-yellow-50 bg-clip-text bg-gradient-to-b from-slate-700 to-slate-300 hover:text-[#5a5afc]"
   >
     <a
-      [routerLink]="['/newsbyid', id()]"
+      [routerLink]="[
+        '/newsbyid', 
+        id(),
+        author(),
+        title(),
+        content(),
+        date()
+      ]"
       routerLinkActive="router-link-active"
       >{{ content() }}</a
     >

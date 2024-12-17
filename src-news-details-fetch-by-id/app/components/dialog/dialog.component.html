@@ -1,0 +1,6 @@
+<dialog id="dialog" #dialog>
+  <div>გსურთ სიახლის წაშლა?</div>
+  <button id="cancelBtn" (click)="dialog.close()">გაუქმება</button>
+  <button id="sendBtn" (click)="delete()">წაშლა</button>
+</dialog>
+<button (click)="dialog.showModal()">show dialog</button>

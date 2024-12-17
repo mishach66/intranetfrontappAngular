@@ -1,0 +1,58 @@
+<div>
+  @if(isLoading()) {
+  <div class="h-[30rem]">
+    <div class="sticky top-72">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+  </div>
+  } @else {
+  <ng-container>
+    <div class="flex flex-col mb-2 border-yellow-400 border-b-2">
+      <div
+        id="author"
+        class="flex justify-between bg-yellow-400 rounded-t-xl p-1 font-bold"
+      >
+        <div>{{ author }}</div>
+        <div>
+          {{ date | date : "MMM d, y" : undefined : undefined }}
+        </div>
+      </div>
+
+      <div
+        id="title"
+        class="border-yellow-400 border-l-2 border-r-2 p-1 italic bg-yellow-50"
+      >
+        {{ title }}
+      </div>
+
+      <div class="border-yellow-400 border-l-2 border-r-2">
+        <hr
+          class="border-yellow-400 border-l-2 border-r-2 mx-2 h-px my-2 bg-gray-400 border-0"
+        />
+      </div>
+
+      <div
+        matTooltip="გაიგე მეტი"
+        matTooltipClass="tooltip-style"
+        id="content"
+        class="border-yellow-400 border-l-2 border-r-2 p-1 bg-yellow-50 text-slate-700"
+      >
+        {{ content }}
+      </div>
+
+      <div
+        class="flex justify-between border-yellow-400 border-l-2 border-r-2 p-4 bg-yellow-50"
+      >
+        <app-button
+          (onClick)="editFunctioncall($event)"
+          [label]="editLabel"
+        ></app-button>
+        <app-button
+          (onClick)="deleteFunctioncall($event)"
+          [label]="deleteLabel"
+        ></app-button>
+      </div>
+    </div>
+  </ng-container>
+  }
+</div>

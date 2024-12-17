@@ -1,7 +1,40 @@
+<dialog
+  id="dialog"
+  #dialog
+  class="h-[200px] w-[400px] text-slate-600 bg-slate-50 font-extrabold text-xl overflow-hidden shadow-2xl cursor-pointer border-transparent rounded-lg"
+>
+  <div class="flex h-[200px] flex-col">
+    <div
+      class="flex h-1/3 justify-center items-center m-5 border border-blue-950 rounded-md"
+    >
+      ნამდვილად გსურთ {{ label() }}?
+    </div>
+    <div class="h-2/3">
+      <div class="flex items-end justify-around h-full pb-4">
+        <button
+          id="sendBtn"
+          class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          (click)="onButtonClick($event); dialog.close()"
+        >
+          {{ label() }}
+        </button>
+
+        <button
+          id="cancelBtn"
+          class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          (click)="dialog.close()"
+        >
+          გაუქმება
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
 <div id="button">
   <button
     type="button"
-    (click)="onButtonClick($event)"
+    (click)="dialog.showModal()"
     class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
   >
     {{ label() }}

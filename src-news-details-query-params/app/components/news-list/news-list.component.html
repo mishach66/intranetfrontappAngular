@@ -1,0 +1,24 @@
+<div>
+  @if(isLoading()) {
+  <div class="h-[30rem]">
+    <div class="sticky top-72">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+  </div>
+  } @else {
+  <ng-container>
+    @for (news of newsList; track news.id) {
+    <app-news
+      [id]="news.id"
+      [author]="news.author"
+      [title]="news.title"
+      [content]="news.content"
+      [date]="news.date"
+    >
+    </app-news>
+    } @empty {
+    <span>There are no items!</span>
+    }
+  </ng-container>
+  }
+</div>

@@ -3,6 +3,7 @@ import { NewsService } from '../../services/news/news.service';
 import { LoadingSpinnerComponent } from "../../components/loading-spinner/loading-spinner.component";
 import { NewsComponent } from '../../components/news/news.component';
 import { News } from '../../models/news/news'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news-list',
@@ -11,7 +12,8 @@ import { News } from '../../models/news/news'
   styleUrl: './news-list.component.scss',
 })
 export class NewsListComponent {
-  constructor() {
+  constructor(private titleService: Title) {
+    titleService.setTitle('უნივერსიტეტის სიახლეები')
     this.getAllNews();
 
     effect(() => {
@@ -26,25 +28,30 @@ export class NewsListComponent {
   newsList: Array<News> = [];
   isLoading: WritableSignal<boolean> = signal(false);
 
-  getAllNews = () => {
-    this.isLoading.set(true);
+  // getAllNews = () => {
+  //   this.isLoading.set(true);
 
-    // // სატესტო ვერსია setTimeout-ით დაყოვნებით
-    setTimeout(() => {
-      this.newsServece.allNews().subscribe((val) => {
-        // console.log('val is:', val)
-        this.newsList = val as Array<News>;
-        this.isLoading.set(false);
-      });
-    }, 1000);
+  //   // // სატესტო ვერსია setTimeout-ით დაყოვნებით
+  //   setTimeout(() => {
+  //     this.newsServece.allNews().subscribe((val) => {
+  //       // console.log('val is:', val)
+  //       this.newsList = val as Array<News>;
+  //       this.isLoading.set(false);
+  //     });
+  //   }, 1000);
 
-    // // პროდაქშენის ვერსია
-    // this.newsServece.allNews().subscribe((val) => {
-    // // this.newsList = val;
-    // this.newsList = val as Array<News>;
-    // this.isLoading.set(false);
-    // });
+    getAllNews = () => {
+      this.isLoading.set(true);
+        this.newsServece.allNews().subscribe((val) => {
+          // console.log('val is:', val)
+          this.newsList = val as Array<News>;
+          this.isLoading.set(false);
+        });
   };
+
+  deleteNewsEvent() {
+    this.getAllNews()
+  }
 
   newsResource = resource({
     loader: async () => {

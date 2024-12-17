@@ -13,7 +13,8 @@
       [author]="news.author"
       [title]="news.title"
       [content]="news.content"
-      [date]="news.date"
+      [date]="news.date" 
+      (deleteNewsEvent)="deleteNewsEvent()"
     >
     </app-news>
     } @empty {
