@@ -36,6 +36,8 @@ export class NewsDetailsComponent implements OnInit {
   edit = 'რედაქტირება';
   delete = 'წაშლა';
 
+  buttonType: string = 'button';
+
   newsServece = inject(NewsService);
   newsDetails: any;
   isLoading: WritableSignal<boolean> = signal(false);
@@ -98,6 +100,7 @@ export class NewsDetailsComponent implements OnInit {
     console.log('editFunctioncall', event);
     console.log('ეს არის ოპერაცია', event.target.innerText);
     console.log('ID არის ', this.id());
+    this.router.navigate(['editnews', this.id(), this.title(), this.author(), this.content(), this.date()]);
   }
   deleteFunctionCall(event: any) {
     console.log('deleteFunctioncall', event);

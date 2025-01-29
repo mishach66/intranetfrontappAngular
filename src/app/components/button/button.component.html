@@ -31,7 +31,21 @@
   </div>
 </dialog>
 
-<div id="button">
+<div id="button" >
+  <button
+    [disabled]="isDisabled()"
+    [type]="buttonType()"
+    (click)="label() === 'წაშლა' ? dialog.showModal() : 
+             label() === 'რედაქტირება' ? onButtonClick($event) :
+             label() === 'შენახვა' ? onButtonClick($event) :
+             null"
+    class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+  >
+    {{ label() }}
+  </button>
+</div>
+
+<!-- <div id="button">
   <button
     type="button"
     (click)="dialog.showModal()"
@@ -39,4 +53,4 @@
   >
     {{ label() }}
   </button>
-</div>
+</div> -->

@@ -47,11 +47,13 @@
         <app-button
           (onClick)="editFunctionCall($event)"
           [label]="edit"
+          [buttonType]="buttonType"
         ></app-button>
 
         <app-button
           (onClick)="deleteFunctionCall($event)"
           [label]="delete"
+          [buttonType]="buttonType"
         ></app-button>
 
       </div>

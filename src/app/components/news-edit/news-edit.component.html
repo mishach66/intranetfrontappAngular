@@ -1,0 +1,37 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="newsForm">
+    <div>
+      <div class="container">
+        <div class="my-4 ml-2 text-2xl text-slate-700">სიახლის რედაქტირება</div>
+
+        <div class="field">
+          <label for="title" ></label>
+          <input type="text"  id="title" placeholder="სათაური" formControlName="title" />
+          @if (!newsForm.get('title')?.value && newsForm.get('title')?.touched) {
+            <small style="color: red; margin-left: 15px; font-weight: bold;">ამ ველის შევსება აუცილებელია</small>
+          }
+        </div>
+        <div class="field">
+          <label for="author" ></label>
+          <input type="text"  id="author" placeholder="ავტორი" formControlName="author" />
+          @if (!newsForm.get('author')?.value && newsForm.get('author')?.touched) {
+            <small style="color: red; margin-left: 15px; font-weight: bold;">ამ ველის შევსება აუცილებელია</small>
+          }
+        </div>
+        <div class="field">
+          <label for="content" ></label>
+          <textarea type="text"  id="content" rows="6" placeholder="ავტორი" formControlName="content" ></textarea>
+        </div>
+
+        <div class="flex">
+          <app-button
+            (onClick)="saveFunctionCall($event)"
+            [label]="saveLabel"
+            [isDisabled]="newsForm.invalid"
+            [buttonType]="buttonType"
+          ></app-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

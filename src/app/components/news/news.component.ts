@@ -27,6 +27,9 @@ export class NewsComponent {
   editLabel = 'რედაქტირება';
   deleteLabel = 'წაშლა';
 
+  isDisabled: boolean = false;
+  buttonType: string = 'button';
+
   id: InputSignal<string | undefined> = input.required();
   title: InputSignal<string | undefined> = input.required();
   author: InputSignal<string | undefined> = input.required();
@@ -34,7 +37,7 @@ export class NewsComponent {
   date: InputSignal<string | undefined> = input.required();
 
   isLoading: WritableSignal<boolean> = signal(false);
-
+  
   deleteNewsEvent = output()
 
   // deleteNews = () => {
@@ -91,18 +94,15 @@ export class NewsComponent {
     });
   };
 
-  editFunctioncall(event: any) {
+  editFunctionCall(event: any) {
     console.log('editFunctioncall', event);
     console.log('ეს არის ოპერაცია', event.target.innerText);
+    this.router.navigate(['editnews', this.id(), this.title(), this.author(), this.content(), this.date()]);
   }
-  deleteFunctioncall(event: any) {
+  deleteFunctionCall(event: any) {
     console.log('deleteFunctioncall', event);
     console.log('ეს არის ოპერაცია', event.target.innerText);
     console.log('ID არის ', this.id());
     this.deleteNews();
-  }
-
-  reloadPage() {
-    window.location.reload();
   }
 }
