@@ -82,6 +82,11 @@ export class NewsEditComponent {
   onSubmit() {
     console.log('დასაბმიტდა!');
     // debugger;
+    if(this.newsForm.invalid) {
+      alert(`now we're safe - an invalid form will not be submitted!`);
+      return;
+    }
+    
     const newsObj: News = this.newsForm.value;
     console.log('newsForm.value', newsObj);
     
